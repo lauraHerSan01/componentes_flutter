@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class _InputsScreenState extends StatefulWidget {
-  const _InputsScreenState({super.key});
+class InputsScreenState extends StatefulWidget {
+  const InputsScreenState({super.key});
 
   @override
-  State<_InputsScreenState> createState() => __InputsScreenStateState();
+  State<InputsScreenState> createState() => _InputsScreenStateState();
 }
 
-class __InputsScreenStateState extends State<_InputsScreenState> {
+class _InputsScreenStateState extends State<InputsScreenState> {
   @override
   Widget build(BuildContext context) {
     return const Center(

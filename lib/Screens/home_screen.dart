@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3/Screens/inputs_screen.dart';
 import 'package:practica3/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +22,12 @@ class HomeScreen extends StatelessWidget {
             ),
             leading: const Icon(Icons.input),
             trailing: const Icon(Icons.arrow_circle_right_rounded),
+            onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context){
+                return const InputsScreenState();
+              });
+              Navigator.push(context, ruta1);
+            }
           ),
           const Divider(),
            ListTile(
@@ -30,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             subtitle: const Text('Lista con sroll infinito'),
             leading: const Icon(Icons.beach_access),
             trailing: const Icon(Icons.arrow_circle_right_rounded),
-          ),
+           ),
           const Divider(),
            ListTile(
             title: Text(

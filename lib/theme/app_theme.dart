@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class AppTheme{
 //Constantes de color primario
-  static const primatyColor = Color.fromARGB(255, 5, 164, 98);
+  static const primatyColor = Color.fromARGB(255, 97, 238, 191);
   //constante de color secundario
-  static const secondaryColor = Color.fromARGB(255, 4, 71, 196);
+  static const secondaryColor = Color.fromARGB(255, 137, 35, 255);
   //cponstante de color de fondo 
-  static const backColor = Color.fromARGB(255, 27, 28, 28);
+  static const backColor = Color.fromARGB(255, 235, 241, 241);
 
 //Constante de tema
   static final ThemeData lightTheme = ThemeData.light().copyWith(

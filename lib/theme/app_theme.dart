@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class AppTheme{
 //Constantes de color primario
-  static const primatyColor = Color.fromARGB(255, 97, 238, 191);
+  static const primatyColor = Color.fromARGB(255, 13, 184, 127);
   //constante de color secundario
   static const secondaryColor = Color.fromARGB(255, 137, 35, 255);
   //cponstante de color de fondo 
@@ -48,6 +48,11 @@ class AppTheme{
         // decorationColor: primaryColor,
         // decorationStyle: TextDecorationStyle.wavy,
         // decorationThickness: 3.0,
+      ),
+      headlineMedium: GoogleFonts.montserrat(
+        color: secondaryColor,
+        fontSize: 21.5,
+        fontWeight: FontWeight.bold,
       ),
       //estilo para text muy pequeño
       bodySmall: GoogleFonts.montserrat(

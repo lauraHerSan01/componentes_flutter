@@ -10,30 +10,56 @@ class AppTheme{
   static const backColor = Color.fromARGB(255, 235, 241, 241);
 
 //Constante de tema
-  static final ThemeData lightTheme = ThemeData.light().copyWith(
-      scaffoldBackgroundColor: const Color.fromARGB(142, 175, 174, 175),
-      primaryColor: const Color.fromARGB(246, 247, 247, 247),
-      appBarTheme: const AppBarTheme(
-        color: Color.fromARGB(255, 97, 238, 191)
-  ),
-  textTheme: TextTheme(
-    //titulos muy grandes 
-    headlineLarge: GoogleFonts.prozaLibre(
-    color: primatyColor,
-    fontSize: 26.5,
-    fontWeight: FontWeight.w500,
-    fontStyle: FontStyle.italic,
-    decoration:TextDecoration.underline,
-    decorationColor: primatyColor,
-    decorationStyle: TextDecorationStyle.dotted,
-  ),
-  //Estilo para texto muy pequeño
-    bodySmall: GoogleFonts.abel(
-      color: secondaryColor,
-      fontSize: 16.0,
+   static final ThemeData lightTheme = ThemeData.light().copyWith(
+    scaffoldBackgroundColor: backColor,
+    appBarTheme: AppBarTheme(
+      color: primatyColor,
+      titleTextStyle: GoogleFonts.lato(
+        color: Colors.white,
+        fontSize: 28.5,
+        fontWeight: FontWeight.bold,
+      ),
     ),
-  ),
+    iconTheme: const IconThemeData(
+      color: primatyColor,
+      size: 35.0,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(
+          primatyColor,
+        ),
+        foregroundColor: MaterialStateProperty.all(
+          Colors.white,
+        ),
+        textStyle: MaterialStateProperty.all(
+          GoogleFonts.pacifico(fontSize: 25.0),
+        ),
+      ),
+    ),
+    textTheme: TextTheme(
+      //Titulos muy grandes
+      headlineLarge: GoogleFonts.outfit(
+        color: primatyColor,
+        fontSize: 26.5,
+        fontWeight: FontWeight.w500,
+        fontStyle: FontStyle.italic,
+        // decoration: TextDecoration.underline,
+        // decorationColor: primaryColor,
+        // decorationStyle: TextDecorationStyle.wavy,
+        // decorationThickness: 3.0,
+      ),
+      //estilo para text muy pequeño
+      bodySmall: GoogleFonts.montserrat(
+        color: secondaryColor,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        fontStyle: FontStyle.italic,
+        // decoration: TextDecoration.underline,
+        // decorationColor: primaryColor,
+        // decorationStyle: TextDecorationStyle.wavy,
+        // decorationThickness: 3.0,
+      ),
+    ),
   );
-  
 }
-

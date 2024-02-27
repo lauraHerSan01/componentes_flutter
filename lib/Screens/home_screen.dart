@@ -10,57 +10,84 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Componentes de Flutter'),
+      appBar: AppBar(
+        title: const Text('Componentes de flutter'),
       ),
       body: ListView(
-        children: <Widget> [
+        children: <Widget>[
           ListTile(
             title: Text(
               'Entradas',
               style: AppTheme.lightTheme.textTheme.headlineLarge,
-              ),
-            subtitle: Text('Introducioendo valores',
-             style: AppTheme.lightTheme.textTheme.bodySmall,
             ),
-            leading: const Icon(Icons.input),
-            trailing: const Icon(Icons.arrow_circle_right_rounded),
+            subtitle: Text('Introduciendo valores',
+                style: AppTheme.lightTheme.textTheme.bodySmall),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.input),
+            ),
+            trailing: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+            ),
             onTap: () {
-              final ruta1 = MaterialPageRoute(builder: (context){
-                return const InputsScreenState();
-              });
+              final ruta1 = MaterialPageRoute(
+                builder: (context) {
+                  return const InputsScreenState();
+                },
+              );
               Navigator.push(context, ruta1);
-            }
+            },
           ),
           const Divider(),
-           ListTile(
-            title: Text('Listview.builder',
-             style: AppTheme.lightTheme.textTheme.headlineLarge,
-             ),
-            subtitle: const Text('Lista con sroll infinito'),
-            leading: const Icon(Icons.beach_access),
-            trailing: const Icon(Icons.arrow_circle_right_rounded),
+          ListTile(
+            title: Text(
+              'Listview.builder',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Lista con scroll infinito',
+                style: AppTheme.lightTheme.textTheme.bodySmall),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.list),
+            ),
+            trailing: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+            ),
             onTap: () {
-              final ruta2 = MaterialPageRoute(builder: (context){
-                return const InfiniteScollScreen();
-              });
-              Navigator.push(context, ruta2);
-            }
-           ),
+              final ruta1 = MaterialPageRoute(
+                builder: (context) {
+                  return const InfiniteScollScreen();
+                },
+              );
+              Navigator.push(context, ruta1);
+            },
+          ),
           const Divider(),
-           ListTile(
+          ListTile(
             title: Text(
               'Notificaciones',
-             style: AppTheme.lightTheme.textTheme.headlineLarge,
-             ),
-            subtitle: const Text('Mostar una notificacion '),
-            leading: const Icon(Icons.input),
-            trailing: const Icon(Icons.arrow_circle_right_rounded),
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Mostrar una notificación',
+                style: AppTheme.lightTheme.textTheme.bodySmall),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.notification_add),
+            ),
+            trailing: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+            ),
             onTap: () {
-              final ruta3 = MaterialPageRoute(builder: (context){
-                return const NotificationsScreen();
-              });
-              Navigator.push(context, ruta3);
-            }
+              final ruta1 = MaterialPageRoute(
+                builder: (context) {
+                  return const NotificationsScreen();
+                },
+              );
+              Navigator.push(context, ruta1);
+            },
           ),
         ],
       ),

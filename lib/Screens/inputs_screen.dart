@@ -11,6 +11,7 @@ class InputsScreenState extends StatefulWidget {
 class _InputsScreenStateState extends State<InputsScreenState> {
   bool switchValue = false; // controlar el widget switch
   double sliderValue = 0.0;
+  int radioSelected = 0;
   @override
   Widget build(BuildContext context) {
      return Scaffold(
@@ -25,6 +26,7 @@ class _InputsScreenStateState extends State<InputsScreenState> {
             entradaNombre(),
             entradaSwitch(),
             entradaSlider(),
+            entradaRadio(),
             const ElevatedButton(
                   onPressed: null,
                   child: Text(
@@ -103,7 +105,54 @@ class _InputsScreenStateState extends State<InputsScreenState> {
         }),
     ],
     );
-   
   }
+
+Column entradaRadio(){
+  return Column(
+    children: [
+      Text('Que prefieres para desarrollo movil?',
+      style: AppTheme.lightTheme.textTheme.headlineLarge,
+      ),
+      ListTile(
+        title: Text(
+          'Kotiln',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+        ),
+        leading: Transform.scale(
+          scale: 1.5,
+          child: Radio(
+            value: 1,
+            groupValue: radioSelected,
+            onChanged: (value){
+              setState(() { //es obligatorio para que este funcionando el widget que queremos 
+                radioSelected = value!;
+              print ('Seleccion de boton radio: $radioSelected');
+              });
+            },
+          ),
+        ),
+      ),
+      ListTile(
+        title: Text(
+          'Flutter',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+        ),
+        leading: Transform.scale(
+          scale: 1.5,
+          child: Radio(
+            value: 2,
+            groupValue: radioSelected,
+            onChanged: (value){
+              setState(() { //es obligatorio para que este funcionando el widget que queremos 
+                radioSelected = value!;
+              print ('Seleccion de boton radio: $radioSelected');
+              });
+            },
+          ),
+        ),
+      )
+    ],
+  );
+}
 
 }

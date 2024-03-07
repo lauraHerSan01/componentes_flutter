@@ -12,6 +12,11 @@ class _InputsScreenStateState extends State<InputsScreenState> {
   bool switchValue = false; // controlar el widget switch
   double sliderValue = 0.0;
   int radioSelected = 0;
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
+
+
   @override
   Widget build(BuildContext context) {
      return Scaffold(
@@ -27,6 +32,11 @@ class _InputsScreenStateState extends State<InputsScreenState> {
             entradaSwitch(),
             entradaSlider(),
             entradaRadio(),
+            Text(
+              'Que usas para correr tus apps?',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            entradasCheck(),
             const ElevatedButton(
                   onPressed: null,
                   child: Text(
@@ -155,4 +165,53 @@ Column entradaRadio(){
   );
 }
 
+Row entradasCheck(){
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Text('Navegador',
+      style: AppTheme.lightTheme.textTheme.bodySmall,
+      ),
+      Transform.scale(
+        scale: 1.5,
+        child: Checkbox(
+          value: isChecked1, 
+          onChanged: (value){
+            setState(() {
+              isChecked1 = value!;
+            });
+          },
+          ),
+      ),
+      Text('Emulador',
+      style: AppTheme.lightTheme.textTheme.bodySmall,
+      ),
+       Transform.scale(
+        scale: 1.5,
+        child: Checkbox(
+          value: isChecked2, 
+          onChanged: (value){
+            setState(() {
+              isChecked2 = value!;
+            });
+          },
+          ),
+      ),
+      Text('Smartphone',
+      style: AppTheme.lightTheme.textTheme.bodySmall,
+      ),
+       Transform.scale(
+        scale: 1.5,
+        child: Checkbox(
+          value: isChecked3, 
+          onChanged: (value){
+            setState(() {
+              isChecked3 = value!;
+            });
+          },
+          ),
+      ),
+    ],
+  );
+}
 }

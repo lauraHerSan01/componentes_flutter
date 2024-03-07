@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practica3/Screens/home_screen.dart';
+import 'package:practica3/Screens/images_screen.dart';
+import 'package:practica3/Screens/infinite_scroll_screen.dart';
+import 'package:practica3/Screens/notifications_screen.dart';
 import 'package:practica3/theme/app_theme.dart';
 
 class InputsScreenState extends StatefulWidget {
@@ -15,6 +19,35 @@ class _InputsScreenStateState extends State<InputsScreenState> {
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
+  int indexNavigation = 0;
+
+
+  openScreen(int index, BuildContext context){
+    MaterialPageRoute ruta = MaterialPageRoute(
+      builder: (context) => const HomeScreen());
+
+    switch (index){
+      case 0:
+        ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
+        break;
+      case 1:
+        ruta = MaterialPageRoute(
+          builder: (context) => const InfiniteScollScreen());
+        break;
+      case 2:
+        ruta = MaterialPageRoute(
+          builder: (context) => const NotificationsScreen());
+        break;
+      case 3:
+        ruta = MaterialPageRoute(
+          builder: (context) => const ImageScreen());
+          break;
+    }
+    setState(() {
+      indexNavigation = index;
+      Navigator.push(context, ruta);
+    });
+  }
 
 
   @override
@@ -46,14 +79,30 @@ class _InputsScreenStateState extends State<InputsScreenState> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: indexNavigation,
         backgroundColor: AppTheme.primatyColor,
+        unselectedItemColor: AppTheme.primatyColor,
+        selectedItemColor: Colors.amber,
+        onTap: (index) => openScreen(index, context),
         items:const  [
           BottomNavigationBarItem(
             icon:   Icon(Icons.home),
             label: 'Inicio'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.data_exploration),
-            label: 'Datos',
+            icon: Icon(Icons.list),
+            label: 'Lista',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notification_add),
+            label: 'Notificaciones',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.image),
+            label: 'Imagenes',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.exit_to_app),
+            label: 'Salir',
           ),
         ],
       ),
@@ -110,7 +159,6 @@ class _InputsScreenStateState extends State<InputsScreenState> {
         onChanged: (value){
           setState(() {
             sliderValue = value;
-            print('Se cambio el slider: $sliderValue');
           });
         }),
     ],
@@ -129,14 +177,13 @@ Column entradaRadio(){
           style: AppTheme.lightTheme.textTheme.bodySmall,
         ),
         leading: Transform.scale(
-          scale: 1.5,
+          scale: 1,
           child: Radio(
             value: 1,
             groupValue: radioSelected,
             onChanged: (value){
               setState(() { //es obligatorio para que este funcionando el widget que queremos 
                 radioSelected = value!;
-              print ('Seleccion de boton radio: $radioSelected');
               });
             },
           ),
@@ -148,14 +195,13 @@ Column entradaRadio(){
           style: AppTheme.lightTheme.textTheme.bodySmall,
         ),
         leading: Transform.scale(
-          scale: 1.5,
+          scale: 1,
           child: Radio(
             value: 2,
             groupValue: radioSelected,
             onChanged: (value){
               setState(() { //es obligatorio para que este funcionando el widget que queremos 
                 radioSelected = value!;
-              print ('Seleccion de boton radio: $radioSelected');
               });
             },
           ),
@@ -173,7 +219,7 @@ Row entradasCheck(){
       style: AppTheme.lightTheme.textTheme.bodySmall,
       ),
       Transform.scale(
-        scale: 1.5,
+        scale: 1,
         child: Checkbox(
           value: isChecked1, 
           onChanged: (value){
@@ -187,7 +233,7 @@ Row entradasCheck(){
       style: AppTheme.lightTheme.textTheme.bodySmall,
       ),
        Transform.scale(
-        scale: 1.5,
+        scale: 1,
         child: Checkbox(
           value: isChecked2, 
           onChanged: (value){
@@ -201,7 +247,7 @@ Row entradasCheck(){
       style: AppTheme.lightTheme.textTheme.bodySmall,
       ),
        Transform.scale(
-        scale: 1.5,
+        scale: 1,
         child: Checkbox(
           value: isChecked3, 
           onChanged: (value){

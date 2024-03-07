@@ -41,7 +41,7 @@ class AppTheme{
       //Titulos muy grandes
       headlineLarge: GoogleFonts.outfit(
         color: primatyColor,
-        fontSize: 26.5,
+        fontSize: 20,
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.italic,
         // decoration: TextDecoration.underline,
